@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Checkers</title>
+    <link rel="icon" href="assets/QuantumCheckersIcon_White.svg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .orange {
+        color: #ff8906; /* Orange color */
+    }
+
+    .orangeBackground {
+        background-color: #ff8234;
+    }
+
+    .deepPurple {
+        color: #483248;
+    }
+
+    .deepPurpleBackground {
+        background-color: #483248;
+    }
+
+    .hero {
+        font-size: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .fadeInFromBottom { /*FADE IN FROM TOP | HIDDEN */
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(30%);
+        transition: all 2s;
+    }
+
+    .showFromTop { /*FADE IN FROM TOP | SHOW */
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0%);
+    }
+
+    .sticky { /* Sticky Navbar */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .rounded-btn {
+      transition: background-color 0.3s ease;
+    }
+    .rounded-btn:hover {
+      background-color: white;
+    }
+</style>
+
+<body class="orangeBackground">
+    <!-- Navbar -->
+    <nav class="bg-black text-white sticky">
+        <div class="container mx-auto px-4 md:flex items-center gap-6">
+            <div class="flex items-center justify-between md:w-auto w-full">
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex-1 flex items-center">
+                    <button class="mobile-menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <title>bars-3-bottom-left</title>
+                        <g fill="none">
+                        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                    </button>
+                </div>
+                <!-- Logo -->
+                <div class="flex flex-3">
+                    <a href="#" class="text-white hover:text-yellow-600 transition-colors flex flex-1 items-center py-5 px-2">
+                        <img class="h-auto w-8 sm:w-10 md:w-10 lg:w-10 xl:w-10 pr-2" src="assets/QuantumCheckersIcon_White.svg" alt="" />
+                        <span class="font-bold">Quantum Checkers</span>
+                    </a>
+                </div>
+            </div>
+             <!-- START - Primary Navigation -->
+            <div class="hidden md:flex md:flex-row flex-col items-center justify-start md:space-x-1 navigation-menu pb-3 md:pb-0 navigation-menu">
+                <a href="#home" class="hover:bg-white hover:text-black transition-colors rounded py-2 px-3 block">Home</a>
+                <a href="#about" class="hover:bg-white hover:text-black transition-colors rounded py-2 px-3 block">About</a>
+                <a href="#contact" class="hover:bg-white hover:text-black transition-colors rounded py-2 px-3 block">Contact</a>
+                <!-- START - Our Games Dropdown Menu -->
+                <div class="relative">
+                    <button class="dropdown-toggle hover:bg-white hover:text-black py-2 px-3 flex items-center gap-2 rounded">
+                        <span class="pointer-events-none">Our Games</span>
+                        <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <title>chevron-down</title>
+                            <g fill="none">
+                                <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </button>
+                    <div class="z-50 dropdown-menu absolute hidden bg-black text-white rounded-b-lg pb-2 w-auto">
+                        <a href="#qcwebapp" class="hover:bg-white hover:text-black block px-6 py-2">QC Webapp</a>
+                        <a href="#qteleportationgame" class="hover:bg-white hover:text-black block px-6 py-2">Teleportation</a>
+                    </div>
+                </div>
+                <!-- STOP - Our Games Dropdown Menu -->
+            </div>
+            <!-- STOP - Primary Navigation -->
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <div id="home" class="hero fadeInFromBottom">
+        <p class="text-6xl text-black font-bold text-center">Quantum Checkers</p>
+        <p class="text-2xl text-black pt-8 pb-2">Brought To You By</p>
+        <p class="text-lg text-gray-700 italic">Delaware State University and</p>
+        <p class="text-lg text-gray-700 italic">the Department of Defense</p>
+     </div>
+
+     <!-- About Section -->
+    <div id="about" class="container mx-auto mt-8 max-w-3xl p-8">
+        <div class="bg-white p-8 rounded-lg shadow border-4 border-black">
+            <h1 class="text-center font-bold text-3xl text-black mb-2">What Is Quantum Checkers?</h1>
+            <div class="flex flex-1 text-gray-700 text-justify p-5">
+                <p class="text-gray-700 text-justify">
+                    Quantum Checkers is a platform used to teach students about quantum computing
+                    through gamification. Our goal is to teach the basics of quantum computing
+                    such as: qubits, quantum circuits, quantum entanglement, and quantum gates
+                    and how these concepts are related and work together to form the field of
+                    quantum computing. We do this by instantiating a quantum circuit, and give
+                    the user an image of the goal circuit that they have to reach through the
+                    application of various quantum gates onto the starting circuit, making the
+                    game an interesting puzzle solving game!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- QC Webapp Section -->
+    <div id="qcwebapp" class="container mx-auto mt-8 max-w-2xl p-8">
+        <div id="about" class="bg-white p-8 rounded-lg shadow border-4 border-black">
+            <h1 class="text-2xl font-bold mb-4 text-center">Quantum Checkers Webapp</h1>
+            <p class="font-bold mb-2">Description:</p>
+            <p class="mb-2 text-justify">
+                Quantum Checkers Webapp is the web application version of the original
+                Quantum Checkers game that was created in Python (see below). It was
+                created by Noah Klaus, Huixiang Zhang, and Eric Smith with the help of
+                Lianxin Xin and supervised by Dr. Ren of Delaware State University.
+                The game consists of solving various puzzles by applying different
+                quantum logic gates onto a quantum circuit consisting of two qubits
+                who are entagled togeter.
+            </p>
+            <div class="pt-5 flex justify-center items-center">
+                <a href="/test" class="center bg-black text-white rounded-full py-2 px-4 font-semibold text-sm shadow-md hover:bg-white hover:text-black rounded-btn">
+                    Play Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- QC Python Section
+    <div id="qcpython" class="container mx-auto mt-8 max-w-2xl p-8">
+        <div id="about" class="bg-white p-8 rounded-lg shadow border-4 border-black">
+            <h1 class="text-2xl font-bold mb-4 text-center">Quantum Checkers Python</h1>
+            <p class="font-bold mb-2">Description:</p>
+            <p class="mb-2 text-justify">
+                Quantum Checkers Python is the original version of Quantum Checkers, and
+                functions in just about the same way as the web application version of
+                the game. It was created by Noah Klaus and Amin Boukari in less than six
+                months with the help of London Anderson, Lianxin Xin and supervised by
+                Dr. Ren of Delaware State University.
+            </p>
+            <p class="font-bold mb-2 pt-4">Download Link:</p>
+            <a href="#qcpython" class="text-blue-600 italic">Placeholder for Download Link</a>
+        </div>
+    </div> -->
+
+    <!-- Second Game (not done yet) Section -->
+    <div id="qteleportationgame" class="container mx-auto mt-8 max-w-2xl p-8">
+        <div id="about" class="bg-white p-8 rounded-lg shadow border-4 border-black">
+            <h1 class="text-2xl font-bold mb-4 text-center">Quantum Teleportation</h1>
+            <p class="font-bold mb-2">Description:</p>
+            <p class="mb-2 text-justify">
+                This game has yet to be started but will consist of facilitating
+                communication between two nodes named "Bob" and "Sally" who
+                communicate via the use of encrypted quantum teleportation.
+            </p>
+            <div class="pt-5 flex justify-center items-center">
+                <button class="center bg-black text-white rounded-full py-2 px-4 font-semibold text-sm shadow-md hover:bg-white hover:text-black rounded-btn">
+                    Play Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- !!!ADJUST FOR FORMSPREE!!! -->
+    <!-- Contact Section -->
+    <div class="container mx-auto mt-8 max-w-3xl p-8">
+        <div class="bg-white p-8 rounded-lg shadow border-4 border-black">
+            <div id="contact" class="flex items-center justify-center p-12">
+                <!-- Author: FormBold Team -->
+                <!-- Learn More: https://formbold.com -->
+                <div class="mx-auto w-full max-w-[550px]">
+                    <h1 class="text-2xl font-bold text-center pb-10">Send Us An Email!</h1>
+                    <form action="https://formbold.com/" method="POST">
+                        <div class="mb-5">
+                        <label
+                            for="name"
+                            class="mb-3 block text-base font-medium text-[#07074D]"
+                        >
+                            Full Name
+                        </label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Full Name"
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                        />
+                        </div>
+                        <div class="mb-5">
+                        <label
+                            for="email"
+                            class="mb-3 block text-base font-medium text-[#07074D]"
+                        >
+                            Email Address
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="example@domain.com"
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                        />
+                        </div>
+                        <div class="mb-5">
+                        <label
+                            for="subject"
+                            class="mb-3 block text-base font-medium text-[#07074D]"
+                        >
+                            Subject
+                        </label>
+                        <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            placeholder="Enter your subject"
+                            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                        />
+                        </div>
+                        <div class="mb-5">
+                        <label
+                            for="message"
+                            class="mb-3 block text-base font-medium text-[#07074D]"
+                        >
+                            Message
+                        </label>
+                        <textarea
+                            rows="4"
+                            name="message"
+                            id="message"
+                            placeholder="Type your message"
+                            class="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                        ></textarea>
+                        </div>
+                        <div class="flex justify-center">
+                            <button class="hover:shadow-form hover:bg-white hover:text-black rounded-md bg-black text-white py-3 px-8 text-base font-semibold outline-none">
+                                Submit
+                            </button>                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Footer Section -->
+        <footer class="bg-white shadow dark:bg-gray-900">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="# class="flex flex-3 items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                        <a href="#" class="text-black hover:text-yellow-600 transition-colors flex flex-row justify-end items-center py-5 px-2">
+                            <img class="h-auto w-10 sm:w-12 md:w-12 lg:w-12 xl:w-12 pr-2" src="assets/QuantumCheckersIcon_Black.svg" alt="" />
+                            <span class="font-bold">Quantum Checkers</span>
+                        </a>
+                    </a>
+    
+                    <ul class="flex flex-1 flex-row justify-center md:justify-end items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 pt-10 md:pt-0 md:pr-10 ">
+                        <li class="p-2">
+                            <a href="#about" class="hover:underline me-4 md:me-6">About</a>
+                        </li>
+                        <li class="p-2">
+                            <a href="#contact" class="hover:underline">Contact</a>
+                        </li>
+                        <li class="p-2">
+                            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                        </li>
+                        <li class="p-2">
+                            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                        </li>
+                    </ul>
+                    <!-- Vertical barrier -->
+                    <div class="h-12 w-1 opacity-0 md:opacity-80 lg:opacity-80 xl:opacity-100 bg-gray-300 mx-4"></div>
+                    <div class="flex flex-wrap justify-center gap-2">   
+                        <!--Github-->
+                        <a href="https://github.com/" class="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                            <g fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" fill="currentColor" /></g>
+                          </svg>
+                        </a>
+                    </div>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Delaware State University</a>. All Rights Reserved.</span>
+            </div>
+        </footer>
+
+
+<script>
+    // START - Navbar Dropdown Functionality
+    document.addEventListener("DOMContentLoaded", () => {
+  // Select all dropdown toggle buttons
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle")
+
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      // Find the next sibling element which is the dropdown menu
+      const dropdownMenu = toggle.nextElementSibling
+
+      // Toggle the 'hidden' class to show or hide the dropdown menu
+      if (dropdownMenu.classList.contains("hidden")) {
+        // Hide any open dropdown menus before showing the new one
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.classList.add("hidden")
+        })
+
+        dropdownMenu.classList.remove("hidden")
+      } else {
+        dropdownMenu.classList.add("hidden")
+      }
+    })
+  })
+
+  // Clicking outside of an open dropdown menu closes it
+  window.addEventListener("click", function (e) {
+    if (!e.target.matches(".dropdown-toggle")) {
+      document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+        if (!menu.contains(e.target)) {
+          menu.classList.add("hidden")
+        }
+      })
+    }
+  })
+  
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.navigation-menu')
+  
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden')
+  })
+  
+  
+})
+
+    // START - 'fadeInFromBottom' smooth animation section
+    const topObserver = new IntersectionObserver( (entries) => { // This function makes things become invisible after they are not on the screen and animates them when they are on the screen
+    entries.forEach( (entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+            entry.target.classList.add('showFromTop')
+        } else {
+            entry.target.classList.remove('showFromTop')
+        }
+    });
+    });
+    // STOP  - 'fadeInFromBottom' smooth animation section
+
+    // START - 'fadeInFromBottom' call
+    const hiddenFromTopElements = document.querySelectorAll('.fadeInFromBottom');
+    hiddenFromTopElements.forEach( (el) => topObserver.observe(el) );
+    // STOP  - 'fadeInFromBottom' call
+</script>    
+    
+</body>
+</html>

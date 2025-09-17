@@ -1,0 +1,56 @@
+.scoreboardTitle {
+    color: var(--color-text);
+    padding: 10px;
+}
+
+.ranking-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  width: 100vw; /* Ensure it takes the full viewport width */
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.ranking-table {
+  min-width: 60%; /* Make the table use the full width of its container */
+  max-width: 80%; /* Ensure it doesn't exceed the viewport width */
+  border-collapse: collapse;
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ranking-table th, .ranking-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left; /* Align text to the left for readability */
+}
+
+.ranking-table th {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.ranking-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Ensure the table is centered within the container */
+.ranking-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive adjustments if needed */
+@media screen and (max-width: 600px) {
+  .ranking-table th, .ranking-table td {
+    padding: 8px; /* Smaller padding for smaller screens */
+  }
+}

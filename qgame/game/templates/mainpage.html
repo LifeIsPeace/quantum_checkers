@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantum Checkers Webapp</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .top-bar {
+    background-color: #f28482;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .nav {
+    display: flex;
+    list-style-type: none;
+  }
+
+  .nav li {
+    padding: 0 15px;
+  }
+
+  .nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .nav a:hover {
+    text-decoration: underline;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .button-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  }
+
+  .card {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    width: 220px; /* Slightly larger to accommodate button width */
+  }
+
+  .button {
+    background-color: #f28482;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0; /* Remove margin from buttons to fit nicely in cards */
+    cursor: pointer;
+    width: 100%; /* Make button fill card */
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .social-media-bar {
+    background-color: #f7ede2;
+    color: black;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">Quantum Checkers</div>
+        <ul class="nav">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#game">Our Game</a></li>
+          <li><a href="#learn">Learn Quantum</a></li>
+          <li><a href="#menu" class="menu-toggle">☰</a></li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <div class="button-section">
+          <div class="card"><button class="button">Start Learning</button></div>
+          <div class="row"> <!-- First row -->
+            <div class="card"><button class="button">Change Log Section</button></div>
+            <div class="card"><button class="button">Future Updates</button></div>
+            <div class="card"><button class="button">Educational Promotions</button></div>
+          </div>
+          <div class="row"> <!-- Second row -->
+            <div class="card"><button class="button">Downloads</button></div>
+            <div class="card"><button class="button">Play Now</button></div>
+            <div class="card"><button class="button">Enroll</button></div>
+          </div>
+        </div>
+      <div class="social-media-bar">
+        <div>Social media and Contact Info</div>
+      </div>
+      </div>
+      
+</body>
+</html>

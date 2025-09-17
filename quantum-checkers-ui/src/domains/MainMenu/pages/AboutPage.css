@@ -1,0 +1,36 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.about h2, .about p {
+    box-sizing: border-box;
+    width: calc(100% - 40px); /* Adjust width for padding */
+    background-color: var(--color-box-background);
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-box-shadow);
+}
+
+.about h2 {
+    color: var(--color-primary);
+    width: auto;
+    border-bottom: 2px solid var(--color-primary); /* Subtle line under the heading */
+}
+
+.about p {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 20px;
+    text-align: justify;
+    min-width: 400px;
+    max-width: 680px; /* To ensure the text doesn't stretch too wide */
+}

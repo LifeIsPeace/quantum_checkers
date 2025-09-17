@@ -1,0 +1,79 @@
+/*File contents migrated from main directory*/
+.howtoplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.howtoplay h2, .howtoplay p {
+    max-width: 75vw; /* Adjusting max width to 75% of the viewport width */
+    margin: 20px auto; /* Centering within their containers */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-box-shadow);
+}
+
+.howtoplay h2, .howtoplay p {
+    box-sizing: border-box;
+    width: calc(100% - 40px); /* Adjust width to include padding */
+    background-color: var(--color-box-background);
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-box-shadow);
+}
+
+.howtoplay h2 {
+    color: var(--color-text);
+    width: auto;
+    font-size: 35px;
+}
+
+.howtoplay p {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 20px;
+    min-width: 400px;
+    max-width: 680px; /* To ensure the text doesn't stretch too wide */
+}
+
+
+/* MODALS */
+.modal {
+    position: absolute;
+    color: var(--color-text);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-background);
+}
+
+.modal-button {
+    background-color: var(--color-primary);
+    color: black;
+    margin: 20px 0;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    border: 2px solid var(--color-primary);
+    border-radius: 15px;
+}
+
+.modal-button:hover {
+    color: white;
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+}

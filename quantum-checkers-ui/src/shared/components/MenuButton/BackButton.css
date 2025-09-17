@@ -1,0 +1,21 @@
+.backButton-container button {
+  background-color: var(--color-secondary);
+  font-weight: bold;
+  color: var(--color-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+  padding: 15px 15px;
+  margin: 10px;
+}
+
+.button-container button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.button-container button:active {
+  background-color: var(--color-button-active);
+}

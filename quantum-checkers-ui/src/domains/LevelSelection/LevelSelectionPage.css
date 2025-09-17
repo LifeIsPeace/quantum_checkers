@@ -1,0 +1,13 @@
+/* src/domains/LevelSelection/LevelSelectionStyles.css */
+
+.level-selection-container {
+    color: var(--color-text);
+}
+
+.level-selection {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+

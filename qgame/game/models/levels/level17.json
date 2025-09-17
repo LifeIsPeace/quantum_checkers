@@ -1,0 +1,35 @@
+{
+   "id": 17,
+   "level": 17,
+   "perfectscore": 1,
+   "circle11": null,
+   "circle12": 1.0,
+   "circle21": null,
+   "circle22": 1.0,
+   "circle23": 1.0,
+   "circle31": null,
+   "circle32": null,
+   "circle33": null,
+   "gate_z": false,
+   "gate_h": true,
+   "gate_x": false,
+   "gate_cz": false,
+   "gate_cx": true,
+   "win_conditions": [
+      {
+         "row": 1,
+         "column": 1,
+         "exact": 1
+      },
+      {
+         "row": 2,
+         "column": 1,
+         "exact": 0
+      },
+      {
+         "row": 2,
+         "column": 3,
+         "exact": 0
+      }
+   ]
+}

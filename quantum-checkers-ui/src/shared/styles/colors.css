@@ -1,0 +1,27 @@
+/* src/shared/styles/colors.css */
+
+:root {
+  --color-primary: rgb(255, 149, 0);
+  --color-secondary: rgb(255, 179, 64);
+  --color-text: rgb(33, 33, 33);
+  --color-text-secondary: #fff;
+  --color-border: rgb(224, 224, 224);
+  --color-background: #f0ccb0;
+  --color-button-hover: rgb(201, 52, 0);
+  --color-button-active: rgb(230, 134, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: rgb(255, 179, 64);
+    --color-secondary: rgb(201, 52, 0);
+    --color-text: rgb(225, 225, 225);
+    --color-text-secondary: #000;
+    --color-border: rgb(64, 64, 64);
+    --color-background: #2e2620;
+    --color-background-secondary: #191827;
+    --color-button-hover: rgb(255, 149, 0);
+    --color-button-active: rgb(230, 144, 10);
+  }
+}
+
