@@ -72,7 +72,13 @@ python manage.py createsuperuser
 
 ```sh  
 python manage.py runserver  
-```  
+```
+#### After the previous step, 
+1. make sure to open a new terminal window
+2. cd into the github directory
+3. cd into qgame
+4. Make sure your python venv environment is activated on this new window
+5. Proceed to the next step
 
 #### Apply migrations for the `game` app:  
 
